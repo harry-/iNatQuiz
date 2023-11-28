@@ -1,17 +1,19 @@
-current user: {{userData?.username}}
+<header>
+<h1> User: {{userData?.username}} Punkte: {{userData.score}}</h1>
+</header>
 
+<br>
 <form #questionForm="ngForm" (ngSubmit)="submitForm();questionForm.resetForm()">
-    <label for="name">Name:</label>
+    <label for="name">Antwort: </label>
     <input type="text" id="name" name="name" [(ngModel)]="answer" required>
      
     <button type="submit">Absenden</button>
-
-    <br>
-
  </form>
 
+<br>
 <div *ngFor="let photo of currentPhotos">
     <img  src =  {{photo.url}}>
+    <br><br>
 </div>
 
 

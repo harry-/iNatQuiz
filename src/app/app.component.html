@@ -1,6 +1,11 @@
 <clr-main-container>
   <div class="content-container">
-    <clr-vertical-nav [clrVerticalNavCollapsible]="true"  >
+
+      <div class="content-area" #contentArea>
+      <router-outlet></router-outlet>
+    </div>
+
+    <clr-vertical-nav >
       <a clrVerticalNavLink [routerLink]="['user']" routerLinkActive="active">
         <cds-icon clrVerticalNavIcon shape="user"></cds-icon>
         User
@@ -15,10 +20,10 @@
       </a>
 
     </clr-vertical-nav>
-    <div class="content-area" #contentArea>
-      <router-outlet></router-outlet>
-    </div>
+
   </div>
+
+
   <div class="mobile-footer">
 <h2>Bildungskarenzquiz</h2>
   </div>

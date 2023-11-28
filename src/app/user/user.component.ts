@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { DatabaseService } from '../database.service';
 import { UserDataService } from '../user-data.service';
 import { UserData } from '../inaturalist.interface';
@@ -14,7 +16,7 @@ export class UserComponent {
 
   userData: UserData = { id: 0, score: 0, username: '', questionindex: 0 }
 
-  constructor(private databaseService: DatabaseService, private userDataService: UserDataService) { }
+  constructor(private databaseService: DatabaseService, private userDataService: UserDataService, private router: Router) { }
 
   async submitForm(): Promise<void> {
     console.log(this.userData);
@@ -69,4 +71,11 @@ export class UserComponent {
       console.error('Error fetching data:', error);
     }
   }
+
+    navigateToQuestions() {
+    this.router.navigate(['/question']);
+  }
 }
+
+
+

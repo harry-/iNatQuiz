@@ -3,8 +3,9 @@
 </header>
  
 <div class="content">
-  <form (ngSubmit)="submitForm()">
-  <label for="name">Name:</label>
+  <br>
+  <form (ngSubmit)="submitForm(); navigateToQuestions()">
+  <label for="name">Name: </label>
   <input type="text" id="name" name="name" [(ngModel)]="userData.username" required>
   
   <button type="submit">Absenden</button>
