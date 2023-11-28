@@ -1,0 +1,19 @@
+    <div *ngFor="let item of userData">
+      {{ item.columnName }}
+    </div>
+
+    <header>
+  <h1>High Score</h1>
+</header>
+ 
+<div class="content">
+  <div *ngFor="let line of userData">
+    {{ line.user }} - {{ line.score }}  
+  </div>
+ 
+  <div *ngIf="userData.length === 0">
+    No data available.
+  </div>
+
+
+

@@ -1,0 +1,82 @@
+.branding{
+    max-width: fit-content !important;
+}
+
+.brand {
+    height: 2rem !important;
+    width: 8rem !important;
+}
+
+.brand > svg {
+    height: 2rem;
+    width: 8rem;
+}
+
+
+.content-area{
+    padding: 0 !important;
+}
+
+.main-container{
+    max-height: 100dvh !important;
+}
+
+@media screen and (max-width: 768px) {
+    .mobile-footer{
+        display: inline-block !important;
+    }
+    clr-vertical-nav{
+        display:none;
+    }
+}
+
+.custom-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.2rem 0.5rem;
+    background-color: hsl(198, 0%, 98%);
+}
+
+.header-actions {
+    align-self: center;
+}
+
+clr-dropdown > .btn{
+    padding: 0; 
+    margin: 0;
+}
+
+clr-dropdown > .btn > cds-icon{
+    position: relative !important;
+    right: unset;
+}
+
+.mobile-footer{
+    display: none;
+}
+
+.mobile-footer > .btn{
+    width: 20%;
+}
+
+.clr-vertical-nav{
+    background-color: white;
+    width: 8rem;
+    box-shadow: 0.05rem 0.1rem 0.05rem var(--clr-card-box-shadow-color);
+    margin-right: 0.1rem;
+}
+
+.nav-dropdown {
+    display: grid;
+}
+
+.nav-dropdown-btn{
+    color: white;
+    align-self: center;
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+

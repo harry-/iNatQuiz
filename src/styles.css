@@ -1,1 +1,75 @@
 /* You can add global styles to this file, and also import other style files */
+/* html{
+    font-size: 16.666667px !important;
+} */
+
+.clr-control-container{
+    width: 100% !important;
+}
+
+.header-overflow-trigger{
+    display: none !important;
+}
+
+body{
+    height: 100% !important;
+}
+
+.display-none{
+    display: none;
+}
+
+.display-block{
+    display: block;
+}
+
+:root{
+    --clr-header-2-bg-color: hsl(198, 0%, 98%);
+    --clr-header-font-color: hsl(198, 0%, 20%);
+    --bg-black-semi-transparent: rgba(0,0,0,0.5);
+    --max-width: 1000px;
+}
+
+@media screen and (max-width: 768px) {
+    .large-screen-only{
+        display: none;
+    }    
+}
+
+
+.sticky-top{
+    position: sticky;
+    top: 0px;
+    z-index: 10;
+}
+
+.p5{
+    line-height: 0.8rem !important;
+}
+
+.m-0{
+    margin: 0 !important;
+}
+
+.mt-0{
+    margin-top: 0  !important;
+}
+
+@media screen and (max-width: 768px) {
+    button:focus,button:visited,button:active{
+        outline: none;
+    }
+}
+
+.pointer-on-hover:hover{
+    cursor: pointer;
+}
+
+.material-card{
+    box-shadow: 0.05rem 0.1rem 0.05rem var(--clr-card-box-shadow-color);
+    border-radius: 0.3rem;
+    border-width: var(--clr-card-border-width, 0.05rem);
+    border-color: var(--clr-card-border-color, hsl(198, 0%, 87%));
+    border-style: solid;
+    overflow: hidden;
+}
