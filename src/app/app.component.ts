@@ -12,24 +12,19 @@ import { InatApiService } from './inat-api.service';
   styleUrls: ['./app.component.css']
 })
 
-
-
 export class AppComponent {
   title = 'iNatQuiz';
-   private inatApiService: InatApiService = inject(InatApiService)
+  private inatApiService: InatApiService = inject(InatApiService)
 
   constructor() {
-
     ClarityIcons.addIcons(userIcon, infoStandardIcon, stepForward2Icon)
-
-    
   }
-   ngOnInit() {
-             try{
-             this.inatApiService.loadObservations
-         }catch(e){
-          console.log(e)
-       
-      }
+
+  ngOnInit() {
+    try {
+      this.inatApiService.loadObservations
+    } catch (e) {
+      console.log(e)
+    }
   }
 }

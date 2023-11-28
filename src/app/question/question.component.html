@@ -1,63 +1,17 @@
 current user: {{userData?.username}}
 
-
-  <form #questionForm="ngForm" (ngSubmit)="submitForm();questionForm.resetForm()">
+<form #questionForm="ngForm" (ngSubmit)="submitForm();questionForm.resetForm()">
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" [(ngModel)]="answer" required>
-    
-    
+     
     <button type="submit">Absenden</button>
 
     <br>
 
-  </form>
+ </form>
 
 <div *ngFor="let photo of currentPhotos">
- <img  src =  {{photo.url}}>
- </div>
-
-<!--
-<div *ngFor="let dat of rawData">
-    <pre>{{dat | json}}</pre>
+    <img  src =  {{photo.url}}>
 </div>
 
-<ng-container *ngFor="let result of rawData.results ">
-
-  <ng-container *ngFor="let prop of result | keyvalue">
-    <ng-container *ngIf="prop.key !== 'name'">
-      {{ prop.key }}: {{ prop.value }}
-    </ng-container>
-
-
-
-
-  </ng-container>
-
-</ng-container>
-<AutoJsonComponent [value]="rawData"></AutoJsonComponent>
-
-{{apiResult}}
-
-{{observations}}
-
-<div *ngFor="let ob of observations">
-    {{ob.id}}: {{ob.taxon?.name}}
-
-<div *ngFor="let photo of ob.photos">
- <img  src =  {{photo.url}}>
- </div>
-
-
-
-
-
-<AutoJsonComponent [value]="rawData"></AutoJsonComponent>
-<ng-container *ngFor="let result of apiResult?.results ">
-
-  created at {{ result.created_at }}
-
-</ng-container>
-
-
--->
 

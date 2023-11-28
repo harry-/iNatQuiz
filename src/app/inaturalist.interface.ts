@@ -238,16 +238,6 @@ export interface ResultsSearch {
     per_page: number;
     results: Observation[];
 }
-
-export interface Search {
-    score?: number;
-    type: 'place'| 'project' | 'taxon' | 'user';
-    place?: Place;
-    project?: Project;
-    taxon?: Taxon;
-    user?: User
-}
-
 export interface UserData {
     id: number
     username: string

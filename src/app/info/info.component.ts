@@ -8,20 +8,20 @@ import { DatabaseService } from '../database.service';
 })
 export class InfoComponent {
   userData: any[] = [];
- 
-  constructor(private databaseService: DatabaseService) {}
- 
+
+  constructor(private databaseService: DatabaseService) { }
+
   async ngOnInit(): Promise<void> {
     await this.loadUserData();
   }
- 
+
   async loadUserData(): Promise<void> {
     try {
       const response = await this.databaseService.getSupabaseClient()
-        .from('iNatQuizUser') 
+        .from('iNatQuizUser')
         .select('*')
-         .order('score', { ascending: false });
- 
+        .order('score', { ascending: false });
+
       if (response.data) {
         this.userData = response.data;
         console.log(this.userData);

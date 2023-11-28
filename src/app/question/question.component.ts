@@ -72,11 +72,11 @@ answer: string = ''
     
 
 
-       this.http.get('https://api.inaturalist.org/v1/observations?identified=true&place_id=10468&hrank=genus&identifications=most_agree&locale=de&per_page=200&order=desc&order_by=created_at').subscribe(data => {
+    this.http.get('https://api.inaturalist.org/v1/observations?identified=true&place_id=10468&hrank=genus&identifications=most_agree&locale=de&per_page=200&order=desc&order_by=created_at').subscribe(data => {
 
       this.jsonData = JSON.stringify(data)
       this.rawData = data
-      
+
       this.observations = this.rawData.results
 
       this.currentPhotos = this.observations[this.userData.questionindex].photos
@@ -91,32 +91,13 @@ answer: string = ''
       console.log("number of pics: ", this.currentPhotos.length)
       console.log("index: ", this.userData.questionindex)
 
-        for (let photo of this.currentPhotos){
-          photo.url = photo.url.replace('square','medium')
-        }
+      for (let photo of this.currentPhotos) {
+        photo.url = photo.url.replace('square', 'medium');
+      }
 
 
     });
  
-  //    let obs:Observation[] = [] 
-        
-      
-  //           obs = this.observations
-  //   for(let ob of obs) {
-  //     this.photo = ob.photos[0]
-  //     if(ob.photos){
-  //       for (let photo of ob.photos){
-  //         photo.url = photo.url.replace('square','medium')
-  //       }
-  //     }
-  //   }
-
-  //  this.observations = obs
-
-
- 
- //   this.loadObservations
-
   }
 
  async submitForm(): Promise<void> {
@@ -126,55 +107,28 @@ answer: string = ''
 
       console.log("correct answer :) increasing score for user ", this.userData?.username )
 
-      let { data, error } = await this.databaseService.getSupabaseClient()
-  .rpc('incrementscore', {
-    incrementby : 1, 
-    userid:this.userData?.id
-  })
+      let { data, error } = await this.databaseService.getSupabaseClient().rpc('incrementscore', {
+        incrementby : 1, 
+        userid:this.userData?.id
+      })
 
-  console.log("db error: ", error)
-  console.log("db answer: ", data)
+    console.log("db error: ", error)
+    console.log("db answer: ", data)
 
-    
-
- 
     } else {
-      console.log("wrong answer, moving on")
+        console.log("wrong answer, moving on")
     }
+    
+    let { data, error } = await this.databaseService.getSupabaseClient().rpc(
+      'incrementindex', {
+      incrementby : 1, 
+      userid:this.userData?.id
+    })
 
-          let { data, error } = await this.databaseService.getSupabaseClient()
-  .rpc('incrementindex', {
-    incrementby : 1, 
-    userid:this.userData?.id
-  })
-
-   
 
     this.userData.questionindex++
     console.log("question index increased to ", this.userData.questionindex)
     this.userDataService.userDataChange(this.userData) 
     this.ngOnInit();
   }
-
-
-
-  //   async loadObservations()  {
-
-  //   const response =  await fetch('https://api.inaturalist.org/v1/observations?identified=true&order=desc&order_by=created_at');
-  //    const data = await response.json() ?? {};
-  //   const observations:Observation[] = data.results ?? []
-
-  //   for (let obs of observations){
-  //     if(obs.photos){
-  //       for (let photo of obs.photos){
-  //         photo.url = photo.url.replace('square','medium')
-  //       }
-  //     }
-  //   }
-
-  //   this.observations = observations
-
-  // }
-
-
 }
