@@ -47,7 +47,7 @@ language sql volatile;
 ```
 Add the url and api key of the database to database.service.ts
 
-##acknowledgments
+## Acknowledgments
 
 Thanks to jmevangelist for the interface definitions of the json data. I would have had a hard time figuring this out on my own. Check out her nature gram project here: https://github.com/jmevangelist/nature-gram
 
