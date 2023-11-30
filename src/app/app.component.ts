@@ -3,7 +3,6 @@ import { ClarityModule } from '@clr/angular';
 import { ClarityIcons, userIcon, infoStandardIcon, stepForward2Icon } from '@cds/core/icon';
 import { Injectable, inject } from '@angular/core';
 import { Observation } from './inaturalist.interface';
-import { InatApiService } from './inat-api.service';
 
 
 @Component({
@@ -14,7 +13,6 @@ import { InatApiService } from './inat-api.service';
 
 export class AppComponent {
   title = 'iNatQuiz';
-  private inatApiService: InatApiService = inject(InatApiService)
 
   constructor() {
     ClarityIcons.addIcons(userIcon, infoStandardIcon, stepForward2Icon)
@@ -22,7 +20,6 @@ export class AppComponent {
 
   ngOnInit() {
     try {
-      this.inatApiService.loadObservations
     } catch (e) {
       console.log(e)
     }

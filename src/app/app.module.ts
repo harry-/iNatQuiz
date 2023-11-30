@@ -13,7 +13,6 @@ import { InfoComponent } from './info/info.component';
 
 import { DatabaseService } from './database.service';
 import { UserDataService } from './user-data.service';
-import { InatApiService } from './inat-api.service';
 
 @NgModule({
   declarations: [
@@ -32,8 +31,7 @@ import { InatApiService } from './inat-api.service';
   ],
   providers: [
     DatabaseService,
-    UserDataService,
-    InatApiService
+    UserDataService
   ],
 
   bootstrap: [AppComponent]

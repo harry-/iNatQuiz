@@ -7,7 +7,6 @@ import { DatabaseService } from '../database.service';
 import { UserDataService } from '../user-data.service';
 import { UserData } from '../inaturalist.interface';
 import { Observation, Photo } from '../inaturalist.interface';
-import { InatApiService } from '../inat-api.service';
 
 @Component({
   selector: 'app-question',
@@ -29,7 +28,7 @@ export class QuestionComponent {
 
   observations: Observation[] = [];
 
-  private inatApiService: InatApiService = inject(InatApiService)
+
 
   jsonData: any;
   rawData: any;
@@ -64,7 +63,7 @@ export class QuestionComponent {
 
     console.log("onInit called")
 
-    this.http.get('https://api.inaturalist.org/v1/observations?identified=true&place_id=10468&hrank=genus&identifications=most_agree&locale=de&per_page=200&order=desc&order_by=created_at').subscribe(data => {
+    this.http.get('https://api.inaturalist.org/v1/observations?photos=true&identified=true&place_id=10468&hrank=genus&identifications=most_agree&locale=de&per_page=200&order=desc&order_by=created_at').subscribe(data => {
 
       this.jsonData = JSON.stringify(data)
       this.rawData = data
@@ -77,6 +76,7 @@ export class QuestionComponent {
       this.currentGermanName = this.observations[this.userData.questionindex].taxon?.preferred_common_name;
       this.currentEnglishName = this.observations[this.userData.questionindex].taxon?.english_common_name;
 
+      console.log(this.observations[this.userData.questionindex])
       console.log("english name: ", this.currentEnglishName)
       console.log("german name: ", this.currentGermanName)
       console.log("scientific name: ", this.currentGenus, " ", this.currentSpecies)

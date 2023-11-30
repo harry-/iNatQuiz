@@ -5,6 +5,7 @@ import { QuestionComponent } from './question/question.component';
 import { UserComponent } from './user/user.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: 'user', pathMatch: 'full'},
   { path: 'user', component: UserComponent },
   { path: 'question', component: QuestionComponent },
   { path: 'info', component: InfoComponent },
